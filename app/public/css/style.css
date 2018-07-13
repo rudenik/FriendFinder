@@ -6,9 +6,13 @@ h2{
     padding-right: 5px;
 }
 h1{
-    margin-left: 10px;
+    position: relative;
+    margin-left: 20px;
     padding: 10px;
 }
-button{
+button .btn.btn-primary.pull-right{
     margin: 20px;
+}
+.btn-group{
+    padding: 0px 20px 0px 20px;
 }

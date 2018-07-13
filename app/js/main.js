@@ -1,9 +1,8 @@
+
+
 function surveyPost(){
     var currUrl = window.location.origin;
 
-    // $.ajax({ url: currUrl + "survey", method: GET}).then(
-
-    // )
     var newFriend = {
         name: $("#namefield").val().trim(),
         //photo?
