@@ -16,3 +16,10 @@ button .btn.btn-primary.pull-right{
 .btn-group{
     padding: 0px 20px 0px 20px;
 }
+body.modal-open div.modal-backdrop { 
+    z-index: 0; 
+}
+#exampleModal{
+    -webkit-transform: translateZ(0);
+z-index: 1000;
+}

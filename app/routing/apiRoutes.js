@@ -1,7 +1,7 @@
 var path = require('path');
 var parser = require('body-parser');
 var friendData = require('../data/friends.js');
-var runningTotal;
+
 
 module.exports = function(app){
     app.get("/api/friends", function(req, res){
@@ -23,10 +23,11 @@ module.exports = function(app){
               });
               console.log("someDIfference: " + sumDiff);
               friendArray.push(sumDiff);
-              //add this(sumDiff) to the current friend, JSON object as it's own key
-              //see who has the smallest difference
         }
         console.log("friendDiff Array: " + friendArray);
+        var idx=friendArray.indexOf(Math.min.apply(null,friendArray))
+        console.log("indx: " + idx);
+        res.json(friendData.friends[idx]);
         // Array.min = function( array ){
         //     return Math.min.apply( Math, array );
         // };
