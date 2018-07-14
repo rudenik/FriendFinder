@@ -24,7 +24,6 @@
     </header>
     <div class='container' id='surveycontainer'>
         <div class="jumbotron">
-            <!-- <form action="/api/friends" method="POST"> -->
                 <form>
                 <div class="row">
                     <h3><label for='nameLabel'>Name (required)</label></h3>
@@ -98,7 +97,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="closebutt" class="btn btn-secondary" >Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
         </div>
@@ -118,11 +116,9 @@ function surveyPost(){
         photo: $("#photourl").val().trim(),
         score: [parseInt($("#q1").val()), parseInt($("#q2").val()), parseInt($("#q3").val()), parseInt($("#q4").val()), parseInt($("#q5").val())]
     }
-    // console.log("from: " + currUrl);
     console.log("Form Name : " + newFriend.name);
     console.log("FormData: " + newFriend.score[0] + " " + newFriend.score[1] + " " + newFriend.score[2]+ " " + newFriend.score[3]+ " " + newFriend.score[4]);
     
-    // $.post("/api/friends"), newFriend, function(response){
         $.ajax({ 
             url:"/api/friends",
             method: "POST",
@@ -135,10 +131,6 @@ function surveyPost(){
         $("#yourmatch").text(response.name);
          $("#matchphoto").attr("src", response.photo);
          $("#exampleModal").modal("show"); 
-
-        // var elems = document.querySelectorAll('#exampleModal');
-        // // var options = {onOpenStart:buildCollapsible(localSections)};
-        // var instances = M.Modal.init(elems);//, options);
 
 
 
