@@ -18,7 +18,7 @@
     <script src="assets/javascript/basicScroll.min.js"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="../js/main.js" defer></script>
+    <!-- <script src="../js/main.js" defer></script> -->
 </head>
 
 <body>
@@ -29,12 +29,17 @@
         <div class="jumbotron">
             <!-- <form action="/api/friends" method="POST"> -->
                 <form>
-                <!-- <input type='radio' id='question1' class='custom-control-input'>
-            <label type='custom-control-label'>1</label> -->
                 <div class="row">
-                    <label for='nameLabel'>Name</label>
-                    <input type='text' class='form-control' name="namefield" placeholder="Name" required>
+                    <h3><label for='nameLabel'>Name (required)</label></h3>
+                    <input type='text' class='form-control' name="namefield"  id="namefield" placeholder="Name" required>
                 </div>
+                <div class="row">
+                        <h3><label for='nameLabel'>Photo URL (required)</label></h3>
+                        <input type='text' class='form-control' name="photourl"  id="photourl" placeholder="https://photos.com/myawesomeselfie.jpg" required>
+                    </div>
+                    <div class="row">
+                        <h3>For all questions below 1 is the least and 5 is the most</h3>
+                    </div>
                 <div class='row'>
                     <h2>Question 1</h2>
                 </div>
@@ -81,17 +86,18 @@
             </form>
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Your Match</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <h2 id="yourmatch"></h2>
+                    <img id="matchphoto" src="/app/data/homer.jpg" alt>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -100,4 +106,41 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+    $("#subbutt").on("click", function(e){
+    e.preventDefault();
+    surveyPost();
+})
+
+function surveyPost(){
+    var currUrl = window.location.origin;
+
+    var newFriend = {
+        name: $("#namefield").val().trim(),
+        photo: $("#photourl").val().trim(),
+        score: [parseInt($("#q1").val()), parseInt($("#q2").val()), parseInt($("#q3").val()), parseInt($("#q4").val()), parseInt($("#q5").val())]
+    }
+    // console.log("from: " + currUrl);
+    console.log("Form Name : " + newFriend.name);
+    console.log("FormData: " + newFriend.score[0] + " " + newFriend.score[1] + " " + newFriend.score[2]+ " " + newFriend.score[3]+ " " + newFriend.score[4]);
+    
+    // $.post("/api/friends"), newFriend, function(response){
+        $.ajax({ 
+            url:"/api/friends",
+            method: "POST",
+            data: newFriend
+            }).then( function(response){
+                console.log(response);
+            })
+
+
+        // $("#yourmatch").text(response.name);
+        // $("#matchphoto").attr("src", response.photo);
+        // $("#exampleModal").modal("toggle");
+    }
+
+
+
+    </script>
 </body>

@@ -1,4 +1,8 @@
 
+$("#subbutt").on("click", function(e){
+    e.preventDefault();
+    surveyPost();
+})
 
 function surveyPost(){
     var currUrl = window.location.origin;
@@ -12,8 +16,3 @@ function surveyPost(){
     console.log("Form Name : " + newFriend.name);
     console.log("FormData: " + newFriend.score[0] + " " + newFriend.score[1] + " " + newFriend.score[2]+ " " + newFriend.score[3]+ " " + newFriend.score[4]);
 }
-
-$("#subbutt").on("click", function(e){
-    e.preventDefault();
-    surveyPost();
-})
