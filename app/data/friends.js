@@ -1,4 +1,4 @@
-var friends = {friends: [
+var friends = [
     {
         name: "Marlowe",
         photo: "https://pbs.twimg.com/profile_images/717144039296925698/MNTOkD-O_400x400.jpg",
@@ -14,6 +14,6 @@ var friends = {friends: [
         photo: "https://pbs.twimg.com/profile_images/721090152584458240/Y7jTfzad_400x400.jpg",
         score: [2,5,0,4,3]
     }
-]}
+]
 
 module.exports = friends;

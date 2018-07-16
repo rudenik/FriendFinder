@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Coda+Caption:800|Knewave|Markazi+Text" rel="stylesheet">
     <script src="https://use.fontawesome.com/a9c0e2e853.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css">
 
 </head>
 
@@ -51,7 +51,7 @@
                     <h3>How much do you like pizza?</h3>
                 </div>
                 <label for="q2">1-5</label>
-                <input type="number" id="q2" name="q2" placeholder="1" step="1" min="1" max="5" required />
+                <input type="number" id="q2" name="q2" step="1" min="1" max="5" required />
                 <div class='row'>
                     <h2>Question 3</h2>
                 </div>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="yourmatch"></h2>
-                    <img id="matchphoto" src="/app/data/homer.jpg" alt>
+                    <img id="matchphoto" src="../data/homer.jpg" alt>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="closebutt" class="btn btn-secondary" >Close</button>
@@ -137,6 +137,13 @@ function surveyPost(){
         })
 
         $("#closebutt").on("click", function(){
+            $("#namefield").val("");
+            $("#photourl").val("");
+            $("#q1").val("");
+            $("#q2").val("");
+            $("#q3").val("");
+            $("#q4").val("");
+            $("#q5").val("");
             $("#exampleModal").modal("hide"); 
         })
     }

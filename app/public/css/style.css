@@ -1,17 +1,27 @@
+body{
+    background-color: #0f202c;
+
+}
 label{
     margin: 5px;
 }
 h2{
     margin: 5px;
     padding-right: 5px;
+    font-family: 'Markazi Text', serif;
 }
 h1{
     position: relative;
-    margin-left: 20px;
+    margin-left: 20px;  
     padding: 10px;
+    font-family: 'Anton', sans-serif;
+    color: white;
 }
-button .btn.btn-primary.pull-right{
+.btn{
     margin: 20px;
+    color: white;
+    
+    background-color: #3473a1;
 }
 .btn-group{
     padding: 0px 20px 0px 20px;
@@ -21,5 +31,15 @@ body.modal-open div.modal-backdrop {
 }
 #exampleModal{
     -webkit-transform: translateZ(0);
-z-index: 1000;
+    z-index: 1000;
 }
+.jumbotron{
+    background-color: #1c3c53;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+}
+h3{
+
+}
+
+    
